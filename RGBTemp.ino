@@ -42,10 +42,10 @@ void setup()
 
 void loop() 
 {
-  char buffor[8];
+  char buffor[6];
   while(Serial.available() > 0)
   {
-      Serial.readBytesUntil('\n', buffor, 8);
+      Serial.readBytesUntil('\n', buffor, 6);
       if(buffor[0] == 'T' && buffor[1] == '1')
       {
         mode = 0;
@@ -98,7 +98,7 @@ void loop()
   }
   else if(mode == 1)
   {
-    RGBColor(map(constrain(getTemp2(),15.0,27.0), 15, 27, 250, 1499),getBrightness());   
+    RGBColor(map(constrain(getTemp2(),0.0,30.0), 0, 30, 250, 1499),getBrightness());   
   }
   else if(mode == 2)
     RGBColor(setColor,getBrightness());
